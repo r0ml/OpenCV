@@ -12,5 +12,5 @@
 # Given that I'm more interested in Swift support than objc support, I went with --without objc .
 # would like to get this working someday
 
-python3 opencv/platforms/apple/build_xcframework.py --out ./build_xcframework --contrib opencv_contrib --framework_name=OpenCV --build_only_specified_archs --iphoneos_archs "arm64" --iphonesimulator_archs "arm64,x86_64" --iphoneos_deployment_target "16.0" --macos_archs "arm64,x86_64" --without objc # --disable-swift
+python3 opencv/platforms/apple/build_xcframework.py --out ./build_xcframework --contrib opencv_contrib --framework_name=OpenCV --build_only_specified_archs --iphoneos_archs "arm64" --iphonesimulator_archs "arm64,x86_64" --iphoneos_deployment_target "16.0" --macos_archs "arm64,x86_64" --catalyst_archs "arm64,x86_64" --without objc # --disable-swift
 
