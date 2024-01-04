@@ -10,7 +10,6 @@ So here it is.
 
 To use it, just include the package <br/>
   `https://github.com/r0ml/OpenCV.git` <br/>
-and specify version 4.8.1 .
 
 The build process (see build.sh) doesn't work with both ObjC and Swift support enabled.
 I chose to use `--without objc`.  So in your project, you will need to change the setting for `C++ and Objective-C interoperability` to `C++/Objective-C++`.
@@ -32,6 +31,14 @@ Then run
 ```
 
 The built xcframework should be located at `build_xcframework/OpenCV.xcframework`.
+
+## Deploying
+
+After building the xcframework, one needs to 
+  1) run `./postbuild.sh xxx` where xxx is the new version number of the updated package.  This will update the version number in the download URL, create the release zip file, and update the checksum in Package.swift
+  2) commit the changes
+  3) create a tag with the above version number for this commit
+  4) 
 
 ## LICENSE
 
