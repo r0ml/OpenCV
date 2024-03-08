@@ -10,7 +10,7 @@ let package = Package(
   products: [
     .library(
       name: "OpenCVY",
-      targets: ["OpenCVY"]),
+      targets: ["OpenCVY", "OpenCVbinary"]),
   ],
   targets: [
     .target(name: "OpenCVY",
@@ -23,8 +23,8 @@ let package = Package(
 //            dependencies: ["OpenCVlocal"],
             path: "wrapper",
 //            swiftSettings: [.interoperabilityMode(.Cxx)],
-            cSettings: [.unsafeFlags(["-std=c++11"])],
-            linkerSettings: [.linkedFramework("OpenCV")]
+            cSettings: [.unsafeFlags(["-std=c++11"])]
+//            linkerSettings: [.linkedFramework("OpenCV")]
             ),
 
      .binaryTarget(name: "OpenCVbinary",

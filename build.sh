@@ -14,3 +14,5 @@
 
 python3 opencv/platforms/apple/build_xcframework.py --out ./build_xcframework --contrib opencv_contrib --framework_name=OpenCV --build_only_specified_archs --iphoneos_archs "arm64" --iphonesimulator_archs "arm64,x86_64" --iphoneos_deployment_target "16.0" --macos_archs "arm64,x86_64" --catalyst_archs "arm64,x86_64" --without objc # --disable-swift
 
+cd build_xcframework/OpenCV.xcframework
+rm */OpenCV.framework/Modules
