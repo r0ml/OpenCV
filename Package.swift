@@ -10,7 +10,7 @@ let package = Package(
   products: [
     .library(
       name: "OpenCVY",
-      targets: ["OpenCVY", "OpenCVbinary"]),
+      targets: ["OpenCVY", "OpenCV"]),
   ],
   targets: [
     .target(name: "OpenCVY",
