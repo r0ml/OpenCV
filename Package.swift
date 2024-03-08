@@ -23,8 +23,8 @@ let package = Package(
 //            dependencies: ["OpenCVlocal"],
             path: "wrapper",
 //            swiftSettings: [.interoperabilityMode(.Cxx)],
-            cSettings: [.unsafeFlags(["-std=c++11"])]
-//            linkerSettings: [.linkedFramework("OpenCV")]
+            cSettings: [.unsafeFlags(["-std=c++11"])],
+            linkerSettings: [.linkedFramework("OpenCVbinary")]
             ),
 
      .binaryTarget(name: "OpenCVbinary",
