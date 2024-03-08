@@ -9,18 +9,30 @@ let package = Package(
   ],
   products: [
     .library(
-      name: "OpenCV",
-      targets: ["OpenCV"]),
+      name: "OpenCVY",
+      targets: ["OpenCVY"]),
   ],
   targets: [
-    .binaryTarget(name: "OpenCV",
+    .target(name: "OpenCVY",
+            dependencies: ["OpenCVX"],
+            path: "swiftWrapper",
+            swiftSettings: [.interoperabilityMode(.Cxx)]
+            ),
+    .target(name: "OpenCVX",
+            dependencies: ["OpenCVbinary"],
+            path: "wrapper",
+//            swiftSettings: [.interoperabilityMode(.Cxx)],
+            cSettings: [.unsafeFlags(["-std=c++11"])],
+            linkerSettings: [.linkedFramework("OpenCV")]
+            ),
+
+     .binaryTarget(name: "OpenCVbinary",
                   url: "https://github.com/r0ml/OpenCV/releases/download/4.9.0/OpenCV.xcframework.zip",
                   checksum: "043b09fc4e0b192fb1ef5880a6058778277c21066f7ceac83bf9e672185c298d"),
-    /*
+
      .binaryTarget(name: "OpenCVLocal",
                    path: "build_xcframework/OpenCV.xcframework"
      ),
-     */
   ]
 )
 
