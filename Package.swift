@@ -8,9 +8,12 @@ let package = Package(
     .macOS(.v11), .iOS(.v16), .macCatalyst(.v16)
   ],
   products: [
+    .library(name: "OpenCV",
+             targets: ["OpenCV"]
+             ),
     .library(
       name: "OpenCVY",
-      targets: ["OpenCVY", "OpenCV"]),
+      targets: ["OpenCVY" ]),
   ],
   targets: [
     .target(name: "OpenCVY",
