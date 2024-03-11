@@ -30,6 +30,7 @@ cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XCFRAMEWORK_FOLDER}/ios-arm64_x86_6
 # codesign --timestamp -v --sign "Apple Development: ...your_id_here ..." OpenCV.xcframework
 
 cd build_xcframework
+rm -f OpenCV.xcframework.zip
 
 # zip -y -r OpenCV.xcframework.zip OpenCV.xcframework
 
