@@ -11,18 +11,30 @@ PRIVACY_FOLDER="${THIS_SCRIPT_DIR}/privacy"
 XCFRAMEWORK_FOLDER="${THIS_SCRIPT_DIR}/build_xcframework/OpenCV.xcframework"
 
 # macOS
-mkdir -p ${XCFRAMEWORK_FOLDER}/macos-arm64_x86_64/Versions/A/Resources
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XCFRAMEWORK_FOLDER}/macos-arm64_x86_64/Versions/A/Resources
+XF="${XCFRAMEWORK_FOLDER}/macos-arm64_x86_64/OpenCV.framework"
+mkdir -p ${XF}/Versions/A/Resources
+cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/Versions/A/Resources
+plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
+cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
 
 # Mac Catalyst
-mkdir -p ${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-maccatalyst/Versions/A/Resources
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-maccatalyst/Versions/A/Resources
+XF="${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-maccatalyst/OpenCV.framework"
+mkdir -p ${XF}/Versions/A/Resources
+cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/Versions/A/Resources
+plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
+cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
 
 # iOS
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XCFRAMEWORK_FOLDER}/ios-arm64/
+XF="${XCFRAMEWORK_FOLDER}/ios-arm64/OpenCV.framework"
+cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/
+plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
+cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
 
 # iOS simulator
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-simulator/
+XF="${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-simulator/OpenCV.framework"
+cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/
+plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
+cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
 
 # you might need to sign here at some point...
 # If you do codesign, do that BEFORE you zip it up
