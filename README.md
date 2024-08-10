@@ -57,6 +57,11 @@ After building the xcframework, one needs to
   3) create a tag with the above version number for this commit
   4) 
 
+
+## Alternate
+
+If adding this SPM package seems to take way too long, you might try using the alternative package at  `https://github.com/r0ml/JustTheBinary`.  This contains a binary package with the same framework as available here, except (as the name suggests) it does not include all the stuff required to rebuild the framework.  It should load faster.
+
 ## LICENSE
 
 Copyright (c) 1868 Charles Babbage  <br/>
