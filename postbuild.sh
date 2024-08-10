@@ -4,38 +4,6 @@ if [ $# -lt 1 ]; then
   exit 2
 fi
 
-# Add in the privacy manifest that Apple's demanding for valid apps
-#
-THIS_SCRIPT_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-PRIVACY_FOLDER="${THIS_SCRIPT_DIR}/privacy"
-XCFRAMEWORK_FOLDER="${THIS_SCRIPT_DIR}/build_xcframework/OpenCV.xcframework"
-
-# macOS
-XF="${XCFRAMEWORK_FOLDER}/macos-arm64_x86_64/OpenCV.framework"
-mkdir -p ${XF}/Versions/A/Resources
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/Versions/A/Resources
-plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
-cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
-
-# Mac Catalyst
-XF="${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-maccatalyst/OpenCV.framework"
-mkdir -p ${XF}/Versions/A/Resources
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/Versions/A/Resources
-plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
-cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
-
-# iOS
-XF="${XCFRAMEWORK_FOLDER}/ios-arm64/OpenCV.framework"
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/
-plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
-cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
-
-# iOS simulator
-XF="${XCFRAMEWORK_FOLDER}/ios-arm64_x86_64-simulator/OpenCV.framework"
-cp ${PRIVACY_FOLDER}/PrivacyInfo.xcprivacy ${XF}/
-plutil -insert CFBundleExecutable -string OpenCV ${XF}/Versions/A/Resources/Info.plist
-cp ${XF}/Versions/A/Resources/Info.plist ${XF}/
-
 # you might need to sign here at some point...
 # If you do codesign, do that BEFORE you zip it up
 #

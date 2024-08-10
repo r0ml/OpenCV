@@ -11,8 +11,8 @@ So here it is.
 To use it, just include the package <br/>
   `https://github.com/r0ml/OpenCV.git` <br/>
 
-The build process (see build.sh) doesn't work with both ObjC and Swift support enabled.
-I chose to use `--without objc`.  So in your project, you will need to change the setting for `C++ and Objective-C interoperability` to `C++/Objective-C++`.
+The build process (see build.sh) enables both ObjC++ and Swift.
+In your project, you will need to change the setting for `C++ and Objective-C interoperability` to `C++/Objective-C++`.
 
 ## Building your own version
 
@@ -27,8 +27,25 @@ I have included a script called `python` in this repo which must be copied or mo
 
 Then run 
 ```
+./prepatch.sh
+```
+
+which fixes a problem with an `#include` statement in opencv.
+
+Then run
+
+```
 ./build.sh
 ```
+
+Because I am using OpenCV as the name of the framework, rather than opencv2, many of the includes in the headers fail to resolve properly.  The following patch fixes that.
+
+Run
+
+```
+./postpatch.sh
+```
+
 
 The built xcframework should be located at `build_xcframework/OpenCV.xcframework`.
 
