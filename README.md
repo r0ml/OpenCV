@@ -53,9 +53,9 @@ The built xcframework should be located at `build_xcframework/OpenCV.xcframework
 
 After building the xcframework, one needs to 
   1) run `./postbuild.sh xxx` where xxx is the new version number of the updated package.  This will update the version number in the download URL, create the release zip file, and update the checksum in Package.swift
-  2) commit the changes
-  3) create a tag with the above version number for this commit
-  4) 
+  2) commit and push the changes
+  3) create a new release on github using the version number from the `postbuild.sh` step
+  4) upload the `OpenCV.framework.zip` in build_xcframework as the asset in the release
 
 
 ## Alternate
