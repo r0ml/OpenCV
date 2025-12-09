@@ -11,11 +11,27 @@ So here it is.
 To use it, just include the package <br/>
   `https://github.com/r0ml/OpenCV.git` <br/>
 
+This version includes everything you need to make your own version.  If you just need the binary framework without all the sources required to rebuild it, then use <br/>
+  `https://github.com/r0ml/JustTheBinary.git` <br/>
+
 The build process (see build.sh) enables both ObjC++ and Swift.
 In your project, you will need to change the setting for `C++ and Objective-C interoperability` to `C++/Objective-C++`.
 
 ## Building your own version
 
+First, if you wish to update the underlying version of OpenCV,
+cd into opencv and do:
+  git fetch --all --tags
+  git checkout <tagname>
+
+then do the same in opencv_contrib (use the same tagname)
+
+Then, back in the root directory of the package, 
+  git add opencv
+  git add opencv_contrib
+  git commit -am 'upgraded to opencv <tagname>'
+
+ 
 If you wish to build your own, clone this repo (`git clone --recurse-submodules`). <br/>
 You will need cmake installed (`brew install cmake`). <br/>
 You will need XCode command line tools installed (`xcode-select --install`). <br/>
@@ -30,7 +46,7 @@ Then run
 ./prepatch.sh
 ```
 
-which fixes a problem with an `#include` statement in opencv.
+which fixes a problem with an `#include` statement in opencv and bad logic for macCatalyst support in TargetConditionals.h .
 
 Then run
 
@@ -38,7 +54,7 @@ Then run
 ./build.sh
 ```
 
-Because I am using OpenCV as the name of the framework, rather than opencv2, many of the includes in the headers fail to resolve properly.  The following patch fixes that.
+Because I am using OpenCV as the name of the framework, rather than opencv2, many of the includes in the headers fail to resolve properly.  The following patch fixes that, as well as changes to XCode 26 in validating iOS frameworks.
 
 Run
 

@@ -17,3 +17,6 @@ for i in $( ls OpenCV.xcframework/ ); do
   fi
     
 done
+
+../fixshallow.sh
+
