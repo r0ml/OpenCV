@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
   name: "OpenCV",
   platforms: [
-    .macOS(.v11), .iOS(.v16), .macCatalyst(.v16)
+    .macOS(.v18), .iOS(.v18), .macCatalyst(.v18)
   ],
   products: [
     .library(name: "OpenCV",
@@ -33,8 +33,8 @@ let package = Package(
             ),
      */
      .binaryTarget(name: "OpenCV",
-                  url: "https://github.com/r0ml/OpenCV/releases/download/4.10.2/OpenCV.xcframework.zip",
-                  checksum: "3f350ab2d703979612460a5b8d858ff0ec4eb7b99a4a32a0ef6a1c4627f5759c"),
+                  url: "https://github.com/r0ml/OpenCV/releases/download/4.10.3/OpenCV.xcframework.zip",
+                  checksum: "50dd78ae8c26c15bdc77eed9e6aefc07df68830816a5e35ead755e9355fdfe03"),
 /*
      .binaryTarget(name: "OpenCV",
                    path: "build_xcframework/OpenCV.xcframework"
