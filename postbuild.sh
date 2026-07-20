@@ -12,13 +12,6 @@ fi
 cd build_xcframework
 rm -f OpenCV.xcframework.zip
 
-# zip -y -r OpenCV.xcframework.zip OpenCV.xcframework
-
-# zip works, but ditto is just a bit more robust for including contents that
-# Apple's fraameworks get all bent out of shape about. This setup doesn't
-# look like it stricly needs it - but if you ever include another framework
-# in here, it inflates incorrectly with zip.
-
 ditto -c -k --sequesterRsrc --keepParent OpenCV.xcframework OpenCV.xcframework.zip
 export vers=$1
 sed -I '' 's/\(download\/\).*\(\/\)/\1'$vers'\2/' ../Package.swift
