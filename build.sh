@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# build scripts require "python" in the PATH -- Sonoma has python3.
-# in order to successfully build, a "python" has to be installed in /usr/local/bin  which runs python3
-
 rm -rf build_xcframework
 
 python3 opencv/platforms/apple/build_xcframework.py --out ./build_xcframework --debug \

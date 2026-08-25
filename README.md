@@ -35,11 +35,6 @@ Then, back in the root directory of the package,
 If you wish to build your own, clone this repo (`git clone --recurse-submodules`). <br/>
 You will need cmake installed (`brew install cmake`). <br/>
 You will need XCode command line tools installed (`xcode-select --install`). <br/>
-You will need to create a version of python called `python` installed at /usr/local/bin . <br/>
-(The build scripts want an executable called `python` in the `PATH`.  
-Unfortunately, if you create a link to /usr/bin/python3, it will not work! )
-
-I have included a script called `python` in this repo which must be copied or moved to `/usr/local/bin/python`.
 
 Then run 
 ```
